@@ -6,8 +6,8 @@
 //! nothing under `fixtures/`.
 
 use std::collections::BTreeMap;
+use std::hash::{DefaultHasher, Hash, Hasher};
 use std::path::{Path, PathBuf};
-use std::time::SystemTime;
 
 use thickapi_cli::capture::{check_set, identity_violations, redact_text, rewrite_set};
 use thickapi_cli::capture::{repo_roots, RedactContext};
@@ -207,18 +207,25 @@ fn committed_sets_carry_no_identity() {
     );
 }
 
-/// Path, size and mtime of every file under `root`.
-fn tree(root: &Path) -> BTreeMap<PathBuf, (u64, SystemTime)> {
+/// Every path under `root`: a file maps to its length and a hash of its bytes, a directory to
+/// `None`. "Nothing written" means the same paths holding the same bytes. Timestamps are left
+/// out: on Windows `read_dir` reports a directory's mtime from its parent's index entry, which
+/// NTFS refreshes lazily, so on a fresh checkout the first walk moves it with nothing written.
+fn tree(root: &Path) -> BTreeMap<PathBuf, Option<(usize, u64)>> {
     let mut out = BTreeMap::new();
     let mut stack = vec![root.to_path_buf()];
     while let Some(dir) = stack.pop() {
         for entry in std::fs::read_dir(&dir).unwrap().flatten() {
             let path = entry.path();
-            let meta = entry.metadata().unwrap();
-            if meta.is_dir() {
+            if entry.file_type().unwrap().is_dir() {
                 stack.push(path.clone());
+                out.insert(path, None);
+            } else {
+                let bytes = std::fs::read(&path).unwrap();
+                let mut hasher = DefaultHasher::new();
+                bytes.hash(&mut hasher);
+                out.insert(path, Some((bytes.len(), hasher.finish())));
             }
-            out.insert(path, (meta.len(), meta.modified().unwrap()));
         }
     }
     out
