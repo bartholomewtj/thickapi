@@ -1,0 +1,139 @@
+{
+  "providers": {
+    "openai": {
+      "api": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "models": []
+    },
+    "subs": {
+      "api": "openai-completions",
+      "baseUrl": "http://127.0.0.1:8787/v1",
+      "apiKey": "ta_test_key",
+      "compat": {
+        "supportsDeveloperRole": true,
+        "supportsReasoningEffort": true
+      },
+      "models": [
+        {
+          "id": "claude/sonnet",
+          "name": "Claude Sonnet (subscription)",
+          "contextWindow": 200000,
+          "maxTokens": 32000,
+          "input": ["text"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off",
+            "minimal": "minimal",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          },
+          "defaultOptions": {
+            "thinking": "medium"
+          },
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        },
+        {
+          "id": "grok/grok-4.7",
+          "name": "Grok 4.7 (subscription)",
+          "contextWindow": 500000,
+          "maxTokens": 32000,
+          "input": ["text"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off",
+            "minimal": "minimal",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "defaultOptions": {
+            "thinking": "medium"
+          },
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        },
+        {
+          "id": "agy/gemini-3.8-flash",
+          "name": "Gemini 3.8 Flash (agy subscription)",
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "input": ["text", "image"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off",
+            "minimal": "minimal",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "high",
+            "max": "high"
+          },
+          "defaultOptions": {
+            "thinking": "medium"
+          },
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        },
+        {
+          "id": "cursor/grok-4.7",
+          "name": "Grok 4.7 (Cursor subscription)",
+          "contextWindow": 500000,
+          "maxTokens": 32000,
+          "input": ["text"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "defaultOptions": {
+            "thinking": "medium"
+          },
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        },
+        {
+          "id": "cursor/auto",
+          "name": "Auto (Cursor subscription)",
+          "contextWindow": 128000,
+          "maxTokens": 32000,
+          "input": ["text", "image"],
+          "reasoning": false,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        }
+      ]
+    }
+  },
+  "defaultProvider": "openai"
+}

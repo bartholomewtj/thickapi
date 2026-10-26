@@ -1,0 +1,72 @@
+# `router-legacy.yaml` in the `thin.vendors` shape (R22 C5). `config::router` tests require
+# both files to load to the same `RouterConfig`; this one with no legacy warnings.
+listen: "127.0.0.1:8787"
+data_dir: "~/.thickapi"
+lan: false
+default_timeout_seconds: 5400
+queue_timeout_seconds: 300
+max_queue_depth: 16
+max_paid_usd_per_day: 5.00
+drain_seconds: 120
+refuse_paths: []
+idle_stall_seconds:
+  claude: 120
+  agy: 14400
+claude_oauth:
+  mode: off
+  retry_after_hours: 6
+  probe:
+    enabled: true
+    model: claude-fable-5-1
+    on_start: true
+    retry_minutes: 15
+  cross_fallback: true
+thin:
+  log_dir: "~/.thickapi/logs"
+  log_keep_days: 14
+  oauth_in_flight: 4
+  start_deadline_seconds: 300
+  reply_timeout_seconds: 30
+  keepalive_seconds: 15
+  max_body_mib: 32
+  trace: true
+  trace_keep: 5
+  vendors:
+    claude:
+      path: "C:/Users/me/.local/bin/claude.exe"
+      bridge:
+        max_concurrent: 3
+        timeout_seconds: 1700
+        idle_seconds: 290
+        mcp_ready_timeout_ms: 6000
+        tolerate:
+          extra_tools: [Foo]
+          nonempty_inventories: [skills]
+      budgets:
+        first_event_seconds: 110
+        idle_seconds: 170
+    grok:
+      base_url: "https://api.x.ai"
+      credentials_path: "C:/Users/me/.grok/auth.json"
+      client_version: "1.0.30"
+      budgets:
+        first_event_seconds: 110
+        idle_seconds: 170
+        tool_call_floor_seconds: 800
+    agy:
+      base_url: "https://daily-cloudcode-pa.googleapis.com"
+      credentials_path: "C:/Users/me/.gemini/antigravity-cli/antigravity-oauth-token"
+      client_version: "1.2.4"
+      project: "aicode-consumers"
+      budgets:
+        first_event_seconds: 110
+        idle_seconds: 170
+    cursor:
+      base_url: "https://agentn.global.api5.cursor.sh"
+      credentials_path: "C:/Users/me/AppData/Roaming/Cursor/auth.json"
+      client_version: "cli-2026.09.15-d2fe57e"
+      cwd: "C:/work"
+      budgets:
+        first_output_seconds: 80
+        idle_seconds: 5
+        idle_after_text_with_tools_seconds: 26

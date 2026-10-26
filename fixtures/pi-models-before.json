@@ -1,0 +1,10 @@
+{
+  "providers": {
+    "openai": {
+      "api": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "models": []
+    }
+  },
+  "defaultProvider": "openai"
+}

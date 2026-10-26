@@ -1,0 +1,11 @@
+pub mod capture;
+pub mod claude_tools;
+pub mod doctor;
+pub mod install_service;
+pub mod keys;
+pub mod mcp_proposal;
+pub mod models;
+pub mod reap;
+pub mod serve;
+pub mod sync_pi;
+pub mod turn;

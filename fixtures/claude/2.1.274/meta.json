@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-17T03:15:04Z",
+  "model": "subs/claude/opus",
+  "path": "oauth",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.1.0",
+  "vendor": "claude",
+  "version": "2.1.274",
+  "wire_model": "claude-opus-4-6"
+}

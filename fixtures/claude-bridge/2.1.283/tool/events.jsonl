@@ -1,0 +1,4 @@
+{"model":"claude-fable-5-1","type":"started"}
+{"arguments":{"path":"notes.txt"},"name":"read_file","type":"tool_call"}
+{"completion_tokens":58,"prompt_tokens":1180,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

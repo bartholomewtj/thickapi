@@ -1,0 +1,4 @@
+{"model":"claude-fable","type":"started"}
+{"text":"The user requested the exact string \"CAPTURE OK\".","type":"reasoning"}
+{"text":"CAPTURE OK","type":"text"}
+{"reason":"stop","type":"finish"}

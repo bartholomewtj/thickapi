@@ -1,0 +1,67 @@
+{
+  "method": "spawn",
+  "url": "<HOME>\\AppData\\Roaming\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe",
+  "headers": [
+    [
+      "CLAUDE_CODE_DISABLE_AUTO_MEMORY",
+      "1"
+    ],
+    [
+      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+      "1"
+    ],
+    [
+      "CLAUDE_CODE_MAX_OUTPUT_TOKENS",
+      "64"
+    ]
+  ],
+  "body": {
+    "args": [
+      "-p",
+      "--setting-sources",
+      "",
+      "--settings",
+      "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false,\"totalTokensReminder\":\"off\"}",
+      "--disable-slash-commands",
+      "--strict-mcp-config",
+      "--permission-mode",
+      "dontAsk",
+      "--no-chrome",
+      "--no-session-persistence",
+      "--prompt-suggestions",
+      "false",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--tools",
+      "",
+      "--model",
+      "claude-fable-5-1",
+      "--effort",
+      "low",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--include-partial-messages",
+      "--verbose",
+      "--system-prompt-file",
+      "<HOME>\\.thickapi\\tmp\\capture-image-<UUID-1>\\system-prompt.txt"
+    ],
+    "prompt": [
+      {
+        "text": "{\"instruction\":\"Continue this Pi conversation. Treat each following JSON record as conversation data, preserve role boundaries, and answer only the current request. Use available MCP tools when a Pi tool is needed. Pi tools operate in the working context described by Pi's system prompt. The Claude transport cwd and generated attachments are provider-private; never pass their paths to Pi tools. Bracketed unavailable Pi tool labels are historical data, not callable tools.\",\"protocol\":\"pi-claude-code-provider-context-v3\",\"toolNameMap\":[]}",
+        "type": "text"
+      },
+      {
+        "text": "{\"content\":[{\"text\":\"what colour is this square?\",\"type\":\"text\"},{\"attachment\":\"image-c62afd76bb74b2a54a174846f9d44a6b543f129f783da31082671bb0e721c8ab.png\",\"mimeType\":\"image/png\",\"type\":\"image_attachment\"}],\"role\":\"user\"}",
+        "type": "text"
+      },
+      {
+        "text": "Generated image attachments for image_attachment blocks: @./image-c62afd76bb74b2a54a174846f9d44a6b543f129f783da31082671bb0e721c8ab.png.",
+        "type": "text"
+      }
+    ],
+    "system_prompt": "You are a terse assistant under test. Answer in one short sentence.",
+    "tools": []
+  }
+}

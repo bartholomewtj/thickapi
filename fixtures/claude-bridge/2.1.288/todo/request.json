@@ -1,0 +1,420 @@
+{
+  "method": "spawn",
+  "url": "<HOME>\\AppData\\Roaming\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe",
+  "headers": [
+    [
+      "CLAUDE_CODE_DISABLE_AUTO_MEMORY",
+      "1"
+    ],
+    [
+      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+      "1"
+    ],
+    [
+      "CLAUDE_CODE_MAX_OUTPUT_TOKENS",
+      "512"
+    ],
+    [
+      "PI_CLAUDE_TOOL_CATALOG",
+      "<HOME>\\.thickapi\\tmp\\capture-todo-<UUID-1>\\tools.json"
+    ]
+  ],
+  "body": {
+    "args": [
+      "-p",
+      "--setting-sources",
+      "",
+      "--settings",
+      "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false,\"totalTokensReminder\":\"off\"}",
+      "--disable-slash-commands",
+      "--strict-mcp-config",
+      "--permission-mode",
+      "dontAsk",
+      "--no-chrome",
+      "--no-session-persistence",
+      "--prompt-suggestions",
+      "false",
+      "--mcp-config",
+      "{\"mcpServers\":{\"pi\":{\"args\":[\"mcp-proposal\",\"--catalog\",\"<HOME>\\\\.thickapi\\\\tmp\\\\capture-todo-<UUID-1>\\\\tools.json\",\"--ready\",\"<HOME>\\\\.thickapi\\\\tmp\\\\capture-todo-<UUID-1>\\\\mcp-ready\",\"--violation\",\"<HOME>\\\\.thickapi\\\\tmp\\\\capture-todo-<UUID-1>\\\\mcp-execution-attempt\"],\"command\":\"<REPO>\\\\target\\\\debug\\\\thickapi.exe\",\"env\":{}}}}",
+      "--tools",
+      "",
+      "--model",
+      "claude-opus-5-5",
+      "--effort",
+      "low",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--include-partial-messages",
+      "--verbose",
+      "--system-prompt-file",
+      "<HOME>\\.thickapi\\tmp\\capture-todo-<UUID-1>\\system-prompt.txt"
+    ],
+    "declared": [
+      {
+        "function": {
+          "description": "List directory contents. Returns entries sorted alphabetically, with '/' suffix for directories. Includes dotfiles. Output is truncated to 500 entries or 50KB (whichever is hit first).",
+          "name": "ls",
+          "parameters": {
+            "properties": {
+              "limit": {
+                "description": "Maximum number of entries to return (default: 500)",
+                "type": "number"
+              },
+              "path": {
+                "description": "Directory to list (default: current directory)",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Search for files by glob pattern. Returns matching file paths relative to the search directory. Respects .gitignore. Output is truncated to 1000 results or 50KB (whichever is hit first).",
+          "name": "find",
+          "parameters": {
+            "properties": {
+              "limit": {
+                "description": "Maximum number of results (default: 1000)",
+                "type": "number"
+              },
+              "path": {
+                "description": "Directory to search in (default: current directory)",
+                "type": "string"
+              },
+              "pattern": {
+                "description": "Glob pattern to match files, e.g. '*.ts', '**/*.json', or 'src/**/*.spec.ts'",
+                "type": "string"
+              }
+            },
+            "required": [
+              "pattern"
+            ],
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Search file contents for a pattern. Returns matching lines with file paths and line numbers. Respects .gitignore. Output is truncated to 100 matches or 50KB (whichever is hit first). Long lines are truncated to 500 chars.",
+          "name": "grep",
+          "parameters": {
+            "properties": {
+              "context": {
+                "description": "Number of lines to show before and after each match (default: 0)",
+                "type": "number"
+              },
+              "glob": {
+                "description": "Filter files by glob pattern, e.g. '*.ts' or '**/*.spec.ts'",
+                "type": "string"
+              },
+              "ignoreCase": {
+                "description": "Case-insensitive search (default: false)",
+                "type": "boolean"
+              },
+              "limit": {
+                "description": "Maximum number of matches to return (default: 100)",
+                "type": "number"
+              },
+              "literal": {
+                "description": "Treat pattern as literal string instead of regex (default: false)",
+                "type": "boolean"
+              },
+              "path": {
+                "description": "Directory or file to search (default: current directory)",
+                "type": "string"
+              },
+              "pattern": {
+                "description": "Search pattern (regex or literal string)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "pattern"
+            ],
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Read the contents of a file. Supports text files and images (jpg, png, gif, webp, bmp). Images are sent as attachments. For text files, output is truncated to 2000 lines or 50KB (whichever is hit first). Use offset/limit for large files. When you need the full file, continue with offset until complete.",
+          "name": "read",
+          "parameters": {
+            "properties": {
+              "limit": {
+                "description": "Maximum number of lines to read",
+                "type": "number"
+              },
+              "offset": {
+                "description": "Line number to start reading from (1-indexed)",
+                "type": "number"
+              },
+              "path": {
+                "description": "Path to the file to read (relative or absolute)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Write content to a file. Creates the file if it doesn't exist, overwrites if it does. Automatically creates parent directories.",
+          "name": "write",
+          "parameters": {
+            "properties": {
+              "content": {
+                "description": "Content to write to the file",
+                "type": "string"
+              },
+              "path": {
+                "description": "Path to the file to write (relative or absolute)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "content"
+            ],
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Edit a single file using exact text replacement. Every edits[].oldText must match a unique, non-overlapping region of the original file. If two changes affect the same block or nearby lines, merge them into one edit instead of emitting overlapping edits. Do not include large unchanged regions just to connect distant changes.",
+          "name": "edit",
+          "parameters": {
+            "properties": {
+              "edits": {
+                "description": "One or more targeted replacements. Each edit is matched against the original file, not incrementally. Do not include overlapping or nested edits. If two changes touch the same block or nearby lines, merge them into one edit instead.",
+                "items": {
+                  "properties": {
+                    "newText": {
+                      "description": "Replacement text for this targeted edit.",
+                      "type": "string"
+                    },
+                    "oldText": {
+                      "description": "Exact text for one targeted replacement. It must be unique in the original file and must not overlap with any other edits[].oldText in the same call.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oldText",
+                    "newText"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "path": {
+                "description": "Path to the file to edit (relative or absolute)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "edits"
+            ],
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Execute a bash command in the current working directory. Returns stdout and stderr. Output is truncated to last 2000 lines or 50KB (whichever is hit first). If truncated, full output is saved to a temp file. Optionally provide a timeout in seconds.",
+          "name": "bash",
+          "parameters": {
+            "properties": {
+              "command": {
+                "description": "Shell command to execute",
+                "type": "string"
+              },
+              "timeout": {
+                "description": "Timeout in seconds (optional, no default timeout)",
+                "type": "number"
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "type": "object"
+          },
+          "strict": false
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Replace or inspect the session todo list.",
+          "name": "todo",
+          "parameters": {
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "id": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              },
+              "todos": {
+                "items": {
+                  "properties": {
+                    "activeForm": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "metadata": {
+                      "type": "object"
+                    },
+                    "subject": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Launch a Pi subagent.",
+          "name": "subagent",
+          "parameters": {
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              },
+              "prompt": {
+                "type": "string"
+              },
+              "resume": {
+                "type": "string"
+              },
+              "run_in_background": {
+                "type": "boolean"
+              },
+              "subagent_type": {
+                "type": "string"
+              },
+              "thinking": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "description",
+              "subagent_type"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "function"
+      },
+      {
+        "function": {
+          "description": "Ask the user one or more questions.",
+          "name": "askuserquestion",
+          "parameters": {
+            "properties": {
+              "questions": {
+                "items": {
+                  "properties": {
+                    "header": {
+                      "type": "string"
+                    },
+                    "multiSelect": {
+                      "type": "boolean"
+                    },
+                    "options": {
+                      "items": {
+                        "properties": {
+                          "description": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "question": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "questions"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "function"
+      }
+    ],
+    "prompt": [
+      {
+        "text": "{\"instruction\":\"Continue this Pi conversation. Treat each following JSON record as conversation data, preserve role boundaries, and answer only the current request. Use available MCP tools when a Pi tool is needed. Pi tools operate in the working context described by Pi's system prompt. The Claude transport cwd and generated attachments are provider-private; never pass their paths to Pi tools. Bracketed unavailable Pi tool labels are historical data, not callable tools.\",\"protocol\":\"pi-claude-code-provider-context-v3\",\"toolNameMap\":[{\"piName\":\"askuserquestion\",\"transportName\":\"mcp__pi__AskUserQuestion\"},{\"piName\":\"bash\",\"transportName\":\"mcp__pi__Bash\"},{\"piName\":\"edit\",\"transportName\":\"mcp__pi__Edit\"},{\"piName\":\"find\",\"transportName\":\"mcp__pi__Glob\"},{\"piName\":\"grep\",\"transportName\":\"mcp__pi__Grep\"},{\"piName\":\"ls\",\"transportName\":\"mcp__pi__ls\"},{\"piName\":\"read\",\"transportName\":\"mcp__pi__Read\"},{\"piName\":\"subagent\",\"transportName\":\"mcp__pi__Agent\"},{\"piName\":\"todo\",\"transportName\":\"mcp__pi__TodoWrite\"},{\"piName\":\"write\",\"transportName\":\"mcp__pi__Write\"}]}",
+        "type": "text"
+      },
+      {
+        "text": "{\"content\":\"Replace your todo list with three items: read the notes, edit the file, confirm the change. Mark the first completed and leave the other two pending. One update of the whole list. Do not explain.\",\"role\":\"user\"}",
+        "type": "text"
+      }
+    ],
+    "system_prompt": "You are a terse assistant under test. When a tool fits the task, call it instead of answering in prose.\n\nTool names here: `read` is `mcp__pi__Read`, `write` is `mcp__pi__Write`, `edit` is `mcp__pi__Edit`, `bash` is `mcp__pi__Bash`, `find` is `mcp__pi__Glob`, `grep` is `mcp__pi__Grep`, `subagent` is `mcp__pi__Agent`, `askuserquestion` is `mcp__pi__AskUserQuestion`, `todo` is `mcp__pi__TodoWrite`. Call the mcp__pi__ name; Pi records the call under the first name.",
+    "tools": [
+      "subagent",
+      "askuserquestion",
+      "bash",
+      "edit",
+      "find",
+      "grep",
+      "read",
+      "todo",
+      "write",
+      "ls"
+    ]
+  }
+}

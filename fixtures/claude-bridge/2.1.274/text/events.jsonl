@@ -1,0 +1,5 @@
+{"model":"claude-sonnet-4-6","type":"started"}
+{"text":"CAPTURE OK","type":"text"}
+{"type":"rate_limit"}
+{"completion_tokens":6,"prompt_tokens":480,"type":"usage"}
+{"reason":"stop","type":"finish"}

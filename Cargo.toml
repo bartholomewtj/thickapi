@@ -1,0 +1,58 @@
+﻿[workspace]
+resolver = "2"
+members = [
+    "crates/thickapi-core",
+    "crates/thickapi-api",
+    "crates/thickapi-cli",
+]
+
+[workspace.package]
+version = "0.15.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+indexing_slicing = "deny"
+
+[workspace.dependencies]
+anyhow = "1"
+axum = { version = "0.8", features = ["macros"] }
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4", features = ["derive"] }
+dirs = "6"
+hex = "0.4"
+http-body-util = "0.1"
+hyper = "1"
+rand = "0.8"
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+sha2 = "0.10"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace", "cors"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+uuid = { version = "1", features = ["v4", "v5"] }
+dunce = "1"
+tokio-stream = "0.1"
+async-stream = "0.3"
+futures-core = "0.3"
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_System_JobObjects", "Win32_System_Threading", "Win32_Security_Credentials", "Win32_Storage_FileSystem"] }
+ureq = "2"
+reqwest = { version = "0.12", default-features = false, features = ["http2", "rustls-tls", "stream", "json"] }
+tokio-util = { version = "0.7", features = ["io", "rt"] }
+futures-util = "0.3"
+bytes = "1"
+httpdate = "1"
+base64 = "0.22"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

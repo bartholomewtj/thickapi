@@ -1,0 +1,41 @@
+[package]
+name = "thickapi-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "thickapi_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "thickapi"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+thickapi-api = { path = "../thickapi-api" }
+thickapi-core = { path = "../thickapi-core" }
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tracing-appender.workspace = true
+serde_yaml.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+ureq.workspace = true
+dirs.workspace = true
+chrono.workspace = true
+base64.workspace = true
+dunce.workspace = true
+flate2 = "1"
+regex = "1"
+serde.workspace = true
+
+[dev-dependencies]
+tempfile = "3"
+filetime = "0.2"

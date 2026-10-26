@@ -1,0 +1,4 @@
+{"model":"claude-fable-5-1-thinking-high","type":"started"}
+{"text":"CAPTURE OK","type":"text"}
+{"completion_tokens":2,"prompt_tokens":191,"type":"usage"}
+{"reason":"stop","type":"finish"}

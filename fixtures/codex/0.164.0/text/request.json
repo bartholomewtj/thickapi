@@ -1,0 +1,65 @@
+{
+  "method": "POST",
+  "url": "https://chatgpt.com/backend-api/codex/responses",
+  "headers": [
+    [
+      "openai-beta",
+      "responses=experimental"
+    ],
+    [
+      "session_id",
+      "capture-text-<UUID-1>"
+    ],
+    [
+      "accept",
+      "text/event-stream"
+    ],
+    [
+      "content-type",
+      "application/json"
+    ],
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "originator",
+      "codex_cli_rs"
+    ],
+    [
+      "user-agent",
+      "codex_cli_rs/0.164.0 (windows; x86_64)"
+    ],
+    [
+      "chatgpt-account-id",
+      "<redacted>"
+    ]
+  ],
+  "body": {
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "input": [
+      {
+        "content": [
+          {
+            "text": "Reply with exactly: CAPTURE OK",
+            "type": "input_text"
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "instructions": "You are a terse assistant under test.",
+    "max_output_tokens": 64,
+    "model": "gpt-6.1-sol",
+    "parallel_tool_calls": true,
+    "prompt_cache_key": "thickapi-12fe7e714009693a",
+    "reasoning": {
+      "effort": "low",
+      "summary": "auto"
+    },
+    "store": false,
+    "stream": true
+  }
+}

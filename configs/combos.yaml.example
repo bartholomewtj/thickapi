@@ -1,0 +1,7 @@
+combos:
+  claude-then-or:
+    - subs/claude/fable
+    - or/anthropic/claude-opus-5
+  grok-then-or:
+    - subs/grok/grok-4.7
+    - or/anthropic/claude-opus-5

@@ -1,0 +1,4 @@
+{"model":"claude-fable-5-1","type":"started"}
+{"text":"The square is blue.","type":"text"}
+{"completion_tokens":8,"prompt_tokens":920,"type":"usage"}
+{"reason":"stop","type":"finish"}

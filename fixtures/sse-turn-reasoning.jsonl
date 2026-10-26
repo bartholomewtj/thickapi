@@ -1,0 +1,5 @@
+{"seq":1,"event":{"type":"turn_start","turn_id":"t-reason","session_id":"s1","backend":"claude_code","account_id":"claude-main","model":"subs/claude/sonnet"}}
+{"seq":2,"event":{"type":"assistant_delta","text":"REASONING:\n- cold = 2800 ms\n- warm = 3 × 1820 = 5460 ms\n- spawn_total_ms = 2800 + 5460 = 8260\n- http_total_ms = 150 × 4 = 600\n- combined_ms = 8260 + 600 = 8860\n"}}
+{"seq":3,"event":{"type":"tool_call","tool":"Read","tool_call_id":"toolu_1","args":{"file_path":"extensions/pi/src/stream.ts"},"label":null,"ok":null,"result_snippet":null,"duration_ms":null,"started_at":"2026-09-16T10:00:00Z","ended_at":null}}
+{"seq":4,"event":{"type":"assistant_delta","text":"TURN3_LINE1: spawn_total_ms=8260\nTURN3_LINE2: stream_lines=199\nTURN3_LINE3: combined_ms=8860"}}
+{"seq":5,"event":{"type":"turn_end","state":"success","returncode":0,"text":"TURN3_LINE1: spawn_total_ms=8260\nTURN3_LINE2: stream_lines=199\nTURN3_LINE3: combined_ms=8860","retry_after_seconds":null,"touched_paths":[],"breaches":[]}}

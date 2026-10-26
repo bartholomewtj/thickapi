@@ -1,0 +1,4 @@
+{"model":"gemini-3.8-flash-tiered","type":"started"}
+{"arguments":{"path":"notes.txt"},"name":"read_file","type":"tool_call"}
+{"completion_tokens":18,"prompt_tokens":113,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

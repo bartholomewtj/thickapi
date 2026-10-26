@@ -1,0 +1,69 @@
+{
+  "method": "spawn",
+  "url": "<HOME>\\AppData\\Roaming\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe",
+  "headers": [
+    [
+      "CLAUDE_CODE_DISABLE_AUTO_MEMORY",
+      "1"
+    ],
+    [
+      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+      "1"
+    ],
+    [
+      "CLAUDE_CODE_MAX_OUTPUT_TOKENS",
+      "512"
+    ],
+    [
+      "PI_CLAUDE_TOOL_CATALOG",
+      "<HOME>\\.thickapi\\tmp\\capture-tool-<UUID-16>\\tools.json"
+    ]
+  ],
+  "body": {
+    "args": [
+      "-p",
+      "--setting-sources",
+      "",
+      "--settings",
+      "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false,\"totalTokensReminder\":\"off\"}",
+      "--disable-slash-commands",
+      "--strict-mcp-config",
+      "--permission-mode",
+      "dontAsk",
+      "--no-chrome",
+      "--no-session-persistence",
+      "--prompt-suggestions",
+      "false",
+      "--mcp-config",
+      "{\"mcpServers\":{\"pi\":{\"args\":[\"mcp-proposal\",\"--catalog\",\"<HOME>\\\\.thickapi\\\\tmp\\\\capture-tool-<UUID-16>\\\\tools.json\",\"--ready\",\"<HOME>\\\\.thickapi\\\\tmp\\\\capture-tool-<UUID-16>\\\\mcp-ready\",\"--violation\",\"<HOME>\\\\.thickapi\\\\tmp\\\\capture-tool-<UUID-16>\\\\mcp-execution-attempt\"],\"command\":\"<REPO>\\\\target\\\\release\\\\thickapi.exe\",\"env\":{}}}}",
+      "--tools",
+      "",
+      "--model",
+      "claude-fable-5-1",
+      "--effort",
+      "low",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--include-partial-messages",
+      "--verbose",
+      "--system-prompt-file",
+      "<HOME>\\.thickapi\\tmp\\capture-tool-<UUID-16>\\system-prompt.txt"
+    ],
+    "prompt": [
+      {
+        "text": "{\"instruction\":\"Continue this Pi conversation. Treat each following JSON record as conversation data, preserve role boundaries, and answer only the current request. Use available MCP tools when a Pi tool is needed. Pi tools operate in the working context described by Pi's system prompt. The Claude transport cwd and generated attachments are provider-private; never pass their paths to Pi tools. Bracketed unavailable Pi tool labels are historical data, not callable tools.\",\"protocol\":\"pi-claude-code-provider-context-v3\",\"toolNameMap\":[{\"piName\":\"read_file\",\"transportName\":\"mcp__pi__read_file\"}]}",
+        "type": "text"
+      },
+      {
+        "text": "{\"content\":\"Read the file notes.txt with the read_file tool and tell me its first line. Do not guess its contents.\",\"role\":\"user\"}",
+        "type": "text"
+      }
+    ],
+    "system_prompt": "You are a terse assistant under test. When a tool fits the task, call it instead of answering in prose.",
+    "tools": [
+      "read_file"
+    ]
+  }
+}

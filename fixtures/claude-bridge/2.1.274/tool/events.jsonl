@@ -1,0 +1,5 @@
+{"model":"claude-sonnet-4-6","type":"started"}
+{"text":"Sure! Let me read that file now.","type":"text"}
+{"arguments":{"path":"notes.txt"},"name":"read_file","type":"tool_call"}
+{"completion_tokens":91,"prompt_tokens":1109,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

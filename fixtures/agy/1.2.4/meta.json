@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-17T03:14:37Z",
+  "model": "subs/agy/gemini-3.8-flash",
+  "path": "oauth",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.1.0",
+  "vendor": "agy",
+  "version": "1.2.4",
+  "wire_model": "gemini-3.8-flash-tiered"
+}

@@ -1,0 +1,4 @@
+{"model":"claude-fable-5-1-thinking-high","type":"started"}
+{"arguments":{"path":"notes.txt"},"name":"read_file","type":"tool_call"}
+{"completion_tokens":0,"prompt_tokens":270,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

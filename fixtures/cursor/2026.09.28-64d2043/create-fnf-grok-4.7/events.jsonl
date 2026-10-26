@@ -1,0 +1,6 @@
+{"model":"grok-4.7-high","type":"started"}
+{"text":"I need to create src/smoke-marker.txt containing the single line \"ok\".\n\nI'll use the Write tool to create the file. The final reply must be a bare JSON object without markdown fences.","type":"reasoning"}
+{"text":"I'll add `src/smoke-marker.txt` with the single line `ok`.","type":"text"}
+{"arguments":{"content":"ok\n","path":"C:\\work\\smoke-repo\\src\\smoke-marker.txt"},"name":"write","type":"tool_call"}
+{"completion_tokens":60,"prompt_tokens":2295,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

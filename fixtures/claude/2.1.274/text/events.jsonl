@@ -1,0 +1,6 @@
+{"model":"claude-opus-4-6","type":"started"}
+{"type":"rate_limit"}
+{"text":"The user wants me to reply with exactly \"CAPTURE OK\".","type":"reasoning"}
+{"text":"CAPTURE OK","type":"text"}
+{"completion_tokens":27,"prompt_tokens":67,"type":"usage"}
+{"reason":"stop","type":"finish"}

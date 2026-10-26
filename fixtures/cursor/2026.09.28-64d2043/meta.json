@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-29T10:25:17Z",
+  "model": "subs/cursor/fable",
+  "path": "oauth",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.12.0",
+  "vendor": "cursor",
+  "version": "2026.09.28-64d2043",
+  "wire_model": "claude-fable-5-1-thinking-high"
+}

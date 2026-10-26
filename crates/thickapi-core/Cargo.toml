@@ -1,0 +1,53 @@
+[package]
+name = "thickapi-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "fake-claude"
+path = "src/bin/fake-claude.rs"
+
+[dependencies]
+anyhow.workspace = true
+chrono.workspace = true
+dirs.workspace = true
+hex.workspace = true
+rand.workspace = true
+rusqlite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+serde_yaml.workspace = true
+toml = "0.8"
+sha2.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+dunce.workspace = true
+regex = "1"
+tokio = { workspace = true }
+windows-sys.workspace = true
+reqwest.workspace = true
+tokio-util.workspace = true
+futures-util.workspace = true
+bytes.workspace = true
+httpdate.workspace = true
+base64.workspace = true
+flate2 = "1"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[lints]
+workspace = true
+
+[features]
+# Injects `metadata.thickapi_test_panic`. Never enable on `thickapi serve`.
+test-hooks = []
+
+[dev-dependencies]
+tempfile = "3"
+serde_yaml.workspace = true
+tokio = { workspace = true, features = ["rt", "macros", "test-util"] }
+axum.workspace = true
+async-stream.workspace = true

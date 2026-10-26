@@ -1,0 +1,72 @@
+# Pre-C5 `configs/router.yaml.example` (main 5b6152a) with its `thin:` block uncommented and
+# every flat key the build before `thin.vendors` accepted set, most to a non-default value,
+# plus the H9-deleted `measured_versions`. `config::router` tests load it and require the
+# same `RouterConfig` as `router-vendors.yaml`, with one legacy warning per key.
+listen: "127.0.0.1:8787"
+data_dir: "~/.thickapi"
+lan: false
+default_timeout_seconds: 5400
+queue_timeout_seconds: 300
+max_queue_depth: 16
+max_paid_usd_per_day: 5.00
+drain_seconds: 120
+refuse_paths: []
+measured_versions:
+  claude: "2.1.273"
+# Kill a thick child that has written nothing to stdout or stderr for this long, per pool.
+# Optional; unset pools take the per-backend default (120s; agy 14400s, because agy prints
+# only its final result and asks for a 240m --print-timeout of its own).
+idle_stall_seconds:
+  claude: 120
+  agy: 14400
+# Claude path (SPEC 19.15). Every key is optional; defaults shown.
+claude_oauth:
+  mode: off                          # off | prefer | only (off: bridge only; direct is billed as extra usage, #137)
+  retry_after_hours: 6
+  probe:
+    enabled: true
+    model: claude-fable-5-1          # non-Haiku, or the probe cannot see the block
+    on_start: true
+    retry_minutes: 15
+  cross_fallback: true               # bridge fault before Started -> direct path once (R3)
+# Thin surface (SPEC 19). Every key is optional; the defaults follow the installed CLIs.
+thin:
+  log_dir: "~/.thickapi/logs"
+  log_keep_days: 14
+  oauth_in_flight: 4
+  oauth_first_event_seconds: 110   # OAuth-direct: quiet before the first event → 503 (0 = off)
+  oauth_idle_seconds: 170          # and between events; vendor keepalives do not count
+  start_deadline_seconds: 300      # longest any request waits for its turn to start (0 = off); must be >= the first-event budgets
+  reply_timeout_seconds: 30        # probe, list_models, loadCodeAssist, a rejected body (0 = off)
+  keepalive_seconds: 15            # SSE comment on a silent stream (0 = off)
+  max_body_mib: 32                 # largest /v1/chat/completions body; images ride inline (0 = off)
+  trace: true
+  trace_keep: 5
+  bridge_max_concurrent: 3
+  bridge_timeout_seconds: 1700
+  bridge_idle_seconds: 290
+  mcp_ready_timeout_ms: 6000
+  claude_path: "C:/Users/me/.local/bin/claude.exe"   # bridge binary; default resolved from PATH
+  # Cursor (T4): the agent service pins a client-version floor. Default is
+  # `cli-<cursor-agent --version>`; pin it here when the CLI is behind or ahead of the wire.
+  cursor_client_version: "cli-2026.09.15-d2fe57e"
+  cursor_base_url: "https://agentn.global.api5.cursor.sh"
+  cursor_credentials_path: "C:/Users/me/AppData/Roaming/Cursor/auth.json"
+  cursor_cwd: "C:/work"          # advertised only; Cursor's own tools are never bridged
+  cursor_first_output_seconds: 80                 # quiet before any Cursor output → 503 (0 = off)
+  cursor_idle_seconds: 5                          # after text with no tools; Cursor holds the stream
+  cursor_idle_after_text_with_tools_seconds: 26   # after text when the request offered tools
+  grok_client_version: "1.0.30"
+  grok_base_url: "https://api.x.ai"
+  grok_credentials_path: "C:/Users/me/.grok/auth.json"
+  grok_tool_call_seconds: 800    # quiet floor when tools are offered: xAI delivers a tool call whole (0 = off)
+  agy_client_version: "1.2.4"
+  agy_base_url: "https://daily-cloudcode-pa.googleapis.com"
+  agy_credentials_path: "C:/Users/me/.gemini/antigravity-cli/antigravity-oauth-token"
+  agy_project: "aicode-consumers"
+  # Claude bridge: warn-and-continue for extra tools / nonempty inventories (SPEC 19.7).
+  # apiKeySource, permissionMode and mcp_servers stay hard.
+  bridge:
+    tolerate:
+      extra_tools: [Foo]
+      nonempty_inventories: [skills]

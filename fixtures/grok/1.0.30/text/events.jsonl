@@ -1,0 +1,6 @@
+{"model":"grok-4.6","type":"started"}
+{"type":"rate_limit"}
+{"text":"The user says: \"Reply with exactly: CAPTURE OK\"\n","type":"reasoning"}
+{"text":"CAPTURE OK","type":"text"}
+{"completion_tokens":2,"prompt_tokens":654,"type":"usage"}
+{"reason":"stop","type":"finish"}

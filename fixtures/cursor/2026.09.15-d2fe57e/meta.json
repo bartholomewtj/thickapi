@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-17T03:14:48Z",
+  "model": "subs/cursor/fable",
+  "path": "oauth",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.1.0",
+  "vendor": "cursor",
+  "version": "2026.09.15-d2fe57e",
+  "wire_model": "claude-fable"
+}

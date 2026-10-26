@@ -1,0 +1,63 @@
+{
+  "method": "POST",
+  "url": "https://daily-cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse",
+  "headers": [
+    [
+      "accept",
+      "text/event-stream"
+    ],
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "content-type",
+      "application/json"
+    ],
+    [
+      "user-agent",
+      "antigravity/1.2.4 windows/amd64"
+    ],
+    [
+      "x-goog-api-client",
+      "google-cloud-sdk vscode_cloudshelleditor/0.1"
+    ],
+    [
+      "client-metadata",
+      "{\"ideType\":\"ANTIGRAVITY\",\"platform\":\"WINDOWS\",\"pluginType\":\"GEMINI\"}"
+    ]
+  ],
+  "body": {
+    "model": "gemini-3.8-flash-tiered",
+    "project": "aicode-consumers",
+    "request": {
+      "contents": [
+        {
+          "parts": [
+            {
+              "text": "Reply with exactly: CAPTURE OK"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "generationConfig": {
+        "maxOutputTokens": 64,
+        "thinkingConfig": {
+          "includeThoughts": true,
+          "thinkingLevel": "low"
+        }
+      },
+      "systemInstruction": {
+        "parts": [
+          {
+            "text": "You are a terse assistant under test."
+          }
+        ]
+      }
+    },
+    "requestId": "agent-capture-text-<UUID-1>",
+    "requestType": "agent",
+    "userAgent": "antigravity"
+  }
+}

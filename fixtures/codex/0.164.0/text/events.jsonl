@@ -1,0 +1,4 @@
+{"model":"gpt-6.1-sol","type":"started"}
+{"text":"CAPTURE OK","type":"text"}
+{"completion_tokens":7,"prompt_tokens":25,"type":"usage"}
+{"reason":"stop","type":"finish"}

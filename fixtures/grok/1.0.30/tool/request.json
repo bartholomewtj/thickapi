@@ -1,0 +1,70 @@
+{
+  "method": "POST",
+  "url": "https://api.x.ai/v1/chat/completions",
+  "headers": [
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "x-grok-client-identifier",
+      "grok-cli"
+    ],
+    [
+      "x-grok-client-version",
+      "1.0.30"
+    ],
+    [
+      "user-agent",
+      "grok-cli/1.0.30"
+    ],
+    [
+      "accept",
+      "text/event-stream"
+    ],
+    [
+      "content-type",
+      "application/json"
+    ]
+  ],
+  "body": {
+    "max_tokens": 512,
+    "messages": [
+      {
+        "content": "You are a terse assistant under test. When a tool fits the task, call it instead of answering in prose.",
+        "role": "system"
+      },
+      {
+        "content": "Read the file notes.txt with the read_file tool and tell me its first line. Do not guess its contents.",
+        "role": "user"
+      }
+    ],
+    "model": "grok-4.6",
+    "reasoning_effort": "low",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "tools": [
+      {
+        "function": {
+          "description": "Read a UTF-8 text file and return its contents.",
+          "name": "read_file",
+          "parameters": {
+            "properties": {
+              "path": {
+                "description": "Path to the file, relative to the workspace.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "function"
+      }
+    ]
+  }
+}

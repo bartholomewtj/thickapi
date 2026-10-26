@@ -1,0 +1,35 @@
+pools:
+  claude:
+    max_concurrent: 2
+    accounts:
+      - id: claude-main
+        backend: claude_code
+        auth: cli_login
+        policy:
+          tos_url: "https://www.anthropic.com/legal/aup"
+          reviewed_on: "2026-09-15"
+  grok:
+    max_concurrent: 1
+    accounts:
+      - id: grok-main
+        backend: grok
+        auth: cli_login
+  agy:
+    max_concurrent: 1
+    accounts:
+      - id: agy-main
+        backend: agy
+        auth: cli_login
+  cursor:
+    max_concurrent: 1
+    accounts:
+      - id: cursor-main
+        backend: cursor
+        auth: cli_login
+  openrouter:
+    max_concurrent: 4
+    accounts:
+      - id: or-main
+        backend: pi
+        auth: env
+        env_key: OPENROUTER_API_KEY

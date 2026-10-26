@@ -1,0 +1,33 @@
+/target/
+**/*.rs.bk
+*.pdb
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.env
+.env.*
+*.pem
+*.key
+keys.yaml
+!configs/*.example
+STATE.md
+draftr.toml
+scripts/.orchestrator-state.json
+scripts/.monitor.pid
+scripts/monitor.log
+scripts/monitor-supervisor.log
+scripts/verify.log
+scripts/verification-report.json
+# `thickapi capture` temp trees (promoted by rename, or left by --keep-failed)
+fixtures/**/*.tmp/
+.idea/
+.vscode/
+node_modules/
+.vite/
+
+# Claude Code agent worktrees and local settings (root only: fixtures/trust/claude/*/home/.claude/ is tracked)
+/.claude/
+
+# Local Cursor CLI config (root only)
+/.cursor/

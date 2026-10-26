@@ -1,0 +1,5 @@
+{"model":"claude-fable-5-1-thinking-high","type":"started"}
+{"text":"Neither plan.md nor src exists, so I'll create src/smoke-marker.txt containing \"ok\" using the native Write tool.\n\n","type":"reasoning"}
+{"arguments":{"content":"ok\n","path":"C:\\work\\smoke-repo\\src\\smoke-marker.txt"},"name":"write","type":"tool_call"}
+{"completion_tokens":28,"prompt_tokens":2295,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

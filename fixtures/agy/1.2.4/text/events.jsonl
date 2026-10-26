@@ -1,0 +1,4 @@
+{"model":"gemini-3.8-flash-tiered","type":"started"}
+{"text":"CAPTURE OK","type":"text"}
+{"completion_tokens":2,"prompt_tokens":17,"type":"usage"}
+{"reason":"stop","type":"finish"}

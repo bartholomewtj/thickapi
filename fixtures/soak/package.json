@@ -1,0 +1,5 @@
+{
+  "name": "soak-fixture",
+  "private": true,
+  "type": "module"
+}

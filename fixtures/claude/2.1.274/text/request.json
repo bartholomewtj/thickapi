@@ -1,0 +1,67 @@
+{
+  "method": "POST",
+  "url": "https://api.anthropic.com/v1/messages",
+  "headers": [
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "anthropic-version",
+      "2023-06-01"
+    ],
+    [
+      "anthropic-beta",
+      "claude-code-20250219,oauth-2025-04-20,interleaved-thinking-2025-05-14"
+    ],
+    [
+      "user-agent",
+      "claude-cli/2.1.274 (external, cli)"
+    ],
+    [
+      "x-app",
+      "cli"
+    ],
+    [
+      "accept",
+      "text/event-stream"
+    ],
+    [
+      "content-type",
+      "application/json"
+    ]
+  ],
+  "body": {
+    "max_tokens": 5024,
+    "messages": [
+      {
+        "content": [
+          {
+            "text": "Reply with exactly: CAPTURE OK",
+            "type": "text"
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "model": "claude-opus-4-6",
+    "stream": true,
+    "system": [
+      {
+        "text": "You are Claude Code, Anthropic's official CLI for Claude.",
+        "type": "text"
+      },
+      {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "text": "You are a terse assistant under test.",
+        "type": "text"
+      }
+    ],
+    "thinking": {
+      "budget_tokens": 4000,
+      "type": "enabled"
+    }
+  }
+}

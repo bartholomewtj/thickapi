@@ -1,0 +1,47 @@
+{
+  "method": "POST",
+  "url": "https://agentn.global.api5.cursor.sh/agent.v1.AgentService/Run",
+  "headers": [
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "connect-accept-encoding",
+      "gzip,br"
+    ],
+    [
+      "connect-protocol-version",
+      "1"
+    ],
+    [
+      "content-type",
+      "application/connect+proto"
+    ],
+    [
+      "user-agent",
+      "connect-es/1.6.1"
+    ],
+    [
+      "x-cursor-client-type",
+      "cli"
+    ],
+    [
+      "x-cursor-client-version",
+      "cli-2026.09.15-d2fe57e"
+    ],
+    [
+      "x-ghost-mode",
+      "true"
+    ],
+    [
+      "x-request-id",
+      "<UUID-4>"
+    ],
+    [
+      "x-original-request-id",
+      "<UUID-4>"
+    ]
+  ],
+  "body_b64": "AAAABLgKtQkKABKiBgqfBgqcBgrvBTxzeXN0ZW0+ClRoZSBjb252ZXJzYXRpb24gc28gZmFyIGlzIHRyYW5zY3JpYmVkIGJlbG93IGluIHJvbGUtdGFnZ2VkIGJsb2Nrcy4gRWFybGllciB0b29sIGludm9jYXRpb25zIGFwcGVhciBhcyA8dG9vbF9jYWxsPiBibG9ja3MgYW5kIHRoZWlyIG91dHB1dHMgYXMgPHRvb2xfcmVzdWx0PiBibG9ja3MuIENvbnRpbnVlIGFzIHRoZSBhc3Npc3RhbnQgZnJvbSB0aGUgZW5kIG9mIHRoZSB0cmFuc2NyaXB0LiBXaGVuIHlvdSBuZWVkIGEgdG9vbCwgaW52b2tlIGl0IHRocm91Z2ggdGhlIHRvb2wgaW50ZXJmYWNlIHByb3ZpZGVkIHRvIHlvdSDigJQgbmV2ZXIgd3JpdGUgYSB0b29sIGNhbGwgYXMgdGV4dCDigJQgYW5kIHVzZSBvbmx5IHRoZSB0b29scyBwcm92aWRlZDsgZG8gbm90IHJlYWQsIGVkaXQgb3IgcnVuIGFueXRoaW5nIGluIHRoZSB3b3Jrc3BhY2UgeW91cnNlbGYuIFJlcGx5IHdpdGggdGhlIGFzc2lzdGFudCBtZXNzYWdlIG9ubHksIHdpdGhvdXQgcm9sZSB0YWdzLgo8L3N5c3RlbT4KCjxzeXN0ZW0+CllvdSBhcmUgYSB0ZXJzZSBhc3Npc3RhbnQgdW5kZXIgdGVzdC4gV2hlbiBhIHRvb2wgZml0cyB0aGUgdGFzaywgY2FsbCBpdCBpbnN0ZWFkIG9mIGFuc3dlcmluZyBpbiBwcm9zZS4KPC9zeXN0ZW0+Cgo8dXNlcj4KUmVhZCB0aGUgZmlsZSBub3Rlcy50eHQgd2l0aCB0aGUgcmVhZF9maWxlIHRvb2wgYW5kIHRlbGwgbWUgaXRzIGZpcnN0IGxpbmUuIERvIG5vdCBndWVzcyBpdHMgY29udGVudHMuCjwvdXNlcj4SJDxVVUlELTU+X19fX19fX19fX19fX19fX19fX19fX19fX19fXxoAIAEi8wEK8AEKCXJlYWRfZmlsZRIvUmVhZCBhIFVURi04IHRleHQgZmlsZSBhbmQgcmV0dXJuIGl0cyBjb250ZW50cy4anAEqmQEKbQoKcHJvcGVydGllcxJfKl0KWwoEcGF0aBJTKlEKPQoLZGVzY3JpcHRpb24SLhosUGF0aCB0byB0aGUgZmlsZSwgcmVsYXRpdmUgdG8gdGhlIHdvcmtzcGFjZS4KEAoEdHlwZRIIGgZzdHJpbmcKFgoIcmVxdWlyZWQSCjIICgYaBHBhdGgKEAoEdHlwZRIIGgZvYmplY3QiCHRoaWNrYXBpKglyZWFkX2ZpbGUqJDxVVUlELTY+X19fX19fX19fX19fX19fX19fX19fX19fX19fX0odCgxjbGF1ZGUtZmFibGUaDQoEZmFzdBIFZmFsc2VgAHIJCgdkZWZhdWx0ch0KDGNsYXVkZS1mYWJsZRoNCgRmYXN0EgVmYWxzZYIBJDxVVUlELTY+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwAAAACnEqQBUqEBCp4BCpsBIpgBCgd3aW5kb3dzEiM8UkVQTz5fX19fX19fX19fX19fX19fX19fX19fX19fX19fXxoKcG93ZXJzaGVsbFIDVVRDWiM8UkVQTz5fX19fX19fX19fX19fX19fX19fX19fX19fX19fX3ABgAEBmAEAoAEAqgEjPFJFUE8+X19fX19fX19fX19fX19fX19fX19fX19fX19fX1+wAQAAAAAABCoCCgAAAAAABBoCGgAAAAAABhoECAEaAAAAAAAGGgQIAhoAAAAAAAYaBAgDGgAAAAAABhoECAQaAAAAAAAGGgQIBRoAAAAAAAYaBAgGGgAAAAAABhoECAcaAAAAAAAGGgQICBoA"
+}

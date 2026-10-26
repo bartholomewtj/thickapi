@@ -1,0 +1,47 @@
+{
+  "method": "POST",
+  "url": "https://agentn.global.api5.cursor.sh/agent.v1.AgentService/Run",
+  "headers": [
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "connect-accept-encoding",
+      "gzip,br"
+    ],
+    [
+      "connect-protocol-version",
+      "1"
+    ],
+    [
+      "content-type",
+      "application/connect+proto"
+    ],
+    [
+      "user-agent",
+      "connect-es/1.6.1"
+    ],
+    [
+      "x-cursor-client-type",
+      "cli"
+    ],
+    [
+      "x-cursor-client-version",
+      "cli-2026.09.15-d2fe57e"
+    ],
+    [
+      "x-ghost-mode",
+      "true"
+    ],
+    [
+      "x-request-id",
+      "<UUID-1>"
+    ],
+    [
+      "x-original-request-id",
+      "<UUID-1>"
+    ]
+  ],
+  "body_b64": "AAAAAzoKtwYKABKYBQqVBQqSBQrlBDxzeXN0ZW0+ClRoZSBjb252ZXJzYXRpb24gc28gZmFyIGlzIHRyYW5zY3JpYmVkIGJlbG93IGluIHJvbGUtdGFnZ2VkIGJsb2Nrcy4gRWFybGllciB0b29sIGludm9jYXRpb25zIGFwcGVhciBhcyA8dG9vbF9jYWxsPiBibG9ja3MgYW5kIHRoZWlyIG91dHB1dHMgYXMgPHRvb2xfcmVzdWx0PiBibG9ja3MuIENvbnRpbnVlIGFzIHRoZSBhc3Npc3RhbnQgZnJvbSB0aGUgZW5kIG9mIHRoZSB0cmFuc2NyaXB0LiBXaGVuIHlvdSBuZWVkIGEgdG9vbCwgaW52b2tlIGl0IHRocm91Z2ggdGhlIHRvb2wgaW50ZXJmYWNlIHByb3ZpZGVkIHRvIHlvdSDigJQgbmV2ZXIgd3JpdGUgYSB0b29sIGNhbGwgYXMgdGV4dCDigJQgYW5kIHVzZSBvbmx5IHRoZSB0b29scyBwcm92aWRlZDsgZG8gbm90IHJlYWQsIGVkaXQgb3IgcnVuIGFueXRoaW5nIGluIHRoZSB3b3Jrc3BhY2UgeW91cnNlbGYuIFJlcGx5IHdpdGggdGhlIGFzc2lzdGFudCBtZXNzYWdlIG9ubHksIHdpdGhvdXQgcm9sZSB0YWdzLgo8L3N5c3RlbT4KCjxzeXN0ZW0+CllvdSBhcmUgYSB0ZXJzZSBhc3Npc3RhbnQgdW5kZXIgdGVzdC4KPC9zeXN0ZW0+Cgo8dXNlcj4KUmVwbHkgd2l0aCBleGFjdGx5OiBDQVBUVVJFIE9LCjwvdXNlcj4SJDxVVUlELTI+X19fX19fX19fX19fX19fX19fX19fX19fX19fXxoAIAEiACokPFVVSUQtMz5fX19fX19fX19fX19fX19fX19fX19fX19fX19fSh0KDGNsYXVkZS1mYWJsZRoNCgRmYXN0EgVmYWxzZWAAcgkKB2RlZmF1bHRyHQoMY2xhdWRlLWZhYmxlGg0KBGZhc3QSBWZhbHNlggEkPFVVSUQtMz5fX19fX19fX19fX19fX19fX19fX19fX19fX19fAAAAAKcSpAFSoQEKngEKmwEimAEKB3dpbmRvd3MSIzxSRVBPPl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fGgpwb3dlcnNoZWxsUgNVVENaIzxSRVBPPl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fcAGAAQGYAQCgAQCqASM8UkVQTz5fX19fX19fX19fX19fX19fX19fX19fX19fX19fX7ABAAAAAAAEKgIKAAAAAAAEGgIaAAAAAAAGGgQIARoAAAAAAAYaBAgCGgAAAAAABhoECAMaAAAAAAAGGgQIBBoAAAAAAAYaBAgFGgAAAAAABhoECAYaAAAAAAAGGgQIBxoAAAAAAAYaBAgIGgA="
+}

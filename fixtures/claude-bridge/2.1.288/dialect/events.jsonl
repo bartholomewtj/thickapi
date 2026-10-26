@@ -1,0 +1,4 @@
+{"model":"claude-opus-5-5","type":"started"}
+{"arguments":{"edits":[{"newText":"omega","oldText":"alpha"}],"path":"notes.txt"},"name":"edit","type":"tool_call"}
+{"completion_tokens":109,"prompt_tokens":4919,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

@@ -1,0 +1,86 @@
+listen: "127.0.0.1:8787"
+data_dir: "~/.thickapi"
+lan: false
+default_timeout_seconds: 5400
+queue_timeout_seconds: 300
+max_queue_depth: 16
+max_paid_usd_per_day: 5.00
+drain_seconds: 120
+refuse_paths: []
+# Kill a thick child that has written nothing to stdout or stderr for this long, per pool.
+# Optional; unset pools take the per-backend default (120s; agy 14400s, because agy prints
+# only its final result and asks for a 240m --print-timeout of its own).
+# idle_stall_seconds:
+#   claude: 120
+#   agy: 14400
+# Claude path (SPEC 19.15). Every key is optional; defaults shown.
+# claude_oauth:
+#   mode: off                          # off | prefer | only (off: bridge only; direct is billed as extra usage, #137)
+#   retry_after_hours: 6
+#   probe:
+#     enabled: true
+#     model: claude-fable-5-1          # non-Haiku, or the probe cannot see the block
+#     on_start: true
+#     retry_minutes: 15
+#   cross_fallback: true               # bridge fault before Started -> direct path once (R3)
+# Thin surface (SPEC 19). Every key is optional; defaults shown. A vendor's own knobs live in
+# `thin.vendors.<id>` (R22 C5): the flat pre-C5 key each one replaced is named after `was`.
+# The old flat keys still load, with one warning each; any other unknown key is refused.
+# thin:
+#   log_dir: "~/.thickapi/logs"
+#   log_keep_days: 14
+#   trace: false
+#   trace_keep: 20
+#   oauth_in_flight: 4               # in-flight cap per OAuth-direct vendor
+#   start_deadline_seconds: 300      # longest any request waits for its turn to start (0 = off); must be >= every first-event budget
+#   reply_timeout_seconds: 30        # probe, list_models, loadCodeAssist, a rejected body (0 = off)
+#   keepalive_seconds: 15            # SSE comment on a silent stream (0 = off)
+#   max_body_mib: 32                 # largest /v1/chat/completions body; images ride inline (0 = off)
+#   vendors:
+#     claude:
+#       # path: "C:/Users/me/.local/bin/claude.exe"   # bridge binary; default resolved from PATH (was claude_path)
+#       bridge:
+#         max_concurrent: 2          # was bridge_max_concurrent
+#         timeout_seconds: 1800      # was bridge_timeout_seconds
+#         idle_seconds: 300          # was bridge_idle_seconds
+#         mcp_ready_timeout_ms: 5000 # was mcp_ready_timeout_ms
+#         handoff_drain_seconds: 10  # stdout drain after a tool handoff, and any wait for the child to exit
+#         dialect: claude_code       # claude_code (default) shows Pi tools as Claude Code tools; off is pass-through (SPEC 19.7 Dialect)
+#         # Warn-and-continue for extra tools / nonempty inventories (SPEC 19.7; was thin.bridge.tolerate).
+#         # apiKeySource, permissionMode and mcp_servers stay hard.
+#         tolerate:
+#           extra_tools: []
+#           nonempty_inventories: []
+#       budgets:                     # the direct path (claude_oauth: prefer | only)
+#         first_event_seconds: 120   # quiet before the first event -> 503 (0 = off; was oauth_first_event_seconds)
+#         idle_seconds: 180          # and between events; vendor keepalives do not count (was oauth_idle_seconds)
+#     grok:
+#       # base_url: "https://api.x.ai"                  # was grok_base_url
+#       # credentials_path: "C:/Users/me/.grok/auth.json"   # was grok_credentials_path
+#       # client_version: "1.0.30"   # was grok_client_version
+#       budgets:
+#         first_event_seconds: 120   # was oauth_first_event_seconds
+#         idle_seconds: 180          # was oauth_idle_seconds
+#         tool_call_floor_seconds: 900   # quiet floor when tools are offered: xAI delivers a tool call whole (0 = off; was grok_tool_call_seconds)
+#     agy:
+#       # base_url: "https://daily-cloudcode-pa.googleapis.com"   # was agy_base_url
+#       # credentials_path: "C:/Users/me/.gemini/antigravity-cli/antigravity-oauth-token"   # was agy_credentials_path
+#       # client_version: "1.2.4"    # was agy_client_version
+#       # project: "my-project"      # default discovered via loadCodeAssist (was agy_project)
+#       budgets:
+#         first_event_seconds: 120   # was oauth_first_event_seconds
+#         idle_seconds: 180          # was oauth_idle_seconds
+#     cursor:
+#       # Cursor (T4): the agent service pins a client-version floor. Default is
+#       # `cli-<cursor-agent --version>`; pin it here when the CLI is behind or ahead of the wire.
+#       # client_version: "cli-2026.09.15-d2fe57e"     # was cursor_client_version
+#       # base_url: "https://agentn.global.api5.cursor.sh"   # was cursor_base_url
+#       # credentials_path: "C:/Users/me/AppData/Roaming/Cursor/auth.json"   # was cursor_credentials_path
+#       # cwd: "C:/work"             # advertised only; Cursor's own tools are never bridged (was cursor_cwd)
+      # shell: "bash"             # RequestContext env.shell: the client's shell tool (Pi's bash, Git bash on Windows), not the host OS default; set only if your client's shell tool is another shell
+      # builtin_loop_limit: 3      # the same tool call with the same result this many times in a row -> 502 builtin_loop before a Run opens (0 = off; 1 is refused, use 0 or >= 2)
+#       budgets:
+#         first_output_seconds: 90   # quiet before any Cursor output -> 503 (0 = off; was cursor_first_output_seconds)
+#         idle_seconds: 4            # after text with no tools; Cursor holds the stream (was cursor_idle_seconds)
+#         idle_after_text_with_tools_seconds: 300  # safety net after text when tools were offered: spending it is vendor_down, not stop; f1.14 turn_ended ends a text answer (was cursor_idle_after_text_with_tools_seconds)
+#         list_models_seconds: 60    # cursor-agent --list-models (models check)

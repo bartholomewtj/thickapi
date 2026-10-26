@@ -1,0 +1,5 @@
+{"model":"claude-fable","type":"started"}
+{"text":"Reading notes.txt to find its first line.","type":"reasoning"}
+{"arguments":{"path":"notes.txt"},"name":"read_file","type":"tool_call"}
+{"completion_tokens":10,"prompt_tokens":226,"type":"usage"}
+{"reason":"tool_calls","type":"finish"}

@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-10-24T15:59:18Z",
+  "model": "subs/codex/gpt-sol",
+  "path": "oauth",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.15.0",
+  "vendor": "codex",
+  "version": "0.164.0",
+  "wire_model": "gpt-6.1-sol"
+}

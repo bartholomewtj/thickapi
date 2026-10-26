@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-17T03:13:53Z",
+  "model": "subs/grok/grok-4.6",
+  "path": "oauth",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.1.0",
+  "vendor": "grok",
+  "version": "1.0.30",
+  "wire_model": "grok-4.6"
+}

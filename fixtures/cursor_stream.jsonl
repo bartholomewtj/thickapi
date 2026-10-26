@@ -1,0 +1,3 @@
+{"type":"system","subtype":"init","session_id":"sess-cursor-abc","tools":[{"name":"Read"},{"name":"Write"}]}
+{"type":"assistant","message":{"id":"msg_01","type":"message","role":"assistant","content":[{"type":"text","text":"Hello from Cursor fixture."}],"model":"claude-fable"}}
+{"type":"result","subtype":"success","duration_ms":100,"is_error":false,"num_turns":1,"result":"Hello from Cursor fixture.","session_id":"sess-cursor-abc","usage":{"input_tokens":10,"output_tokens":5,"cache_read_input_tokens":0,"cache_creation_input_tokens":0},"total_cost_usd":0.0}

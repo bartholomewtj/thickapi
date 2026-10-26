@@ -1,0 +1,85 @@
+{
+  "method": "POST",
+  "url": "https://chatgpt.com/backend-api/codex/responses",
+  "headers": [
+    [
+      "openai-beta",
+      "responses=experimental"
+    ],
+    [
+      "session_id",
+      "capture-tool-<UUID-2>"
+    ],
+    [
+      "accept",
+      "text/event-stream"
+    ],
+    [
+      "content-type",
+      "application/json"
+    ],
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "originator",
+      "codex_cli_rs"
+    ],
+    [
+      "user-agent",
+      "codex_cli_rs/0.164.0 (windows; x86_64)"
+    ],
+    [
+      "chatgpt-account-id",
+      "<redacted>"
+    ]
+  ],
+  "body": {
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "input": [
+      {
+        "content": [
+          {
+            "text": "Read the file notes.txt with the read_file tool and tell me its first line. Do not guess its contents.",
+            "type": "input_text"
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "instructions": "You are a terse assistant under test. When a tool fits the task, call it instead of answering in prose.",
+    "max_output_tokens": 512,
+    "model": "gpt-6.1-sol",
+    "parallel_tool_calls": true,
+    "prompt_cache_key": "thickapi-eb586f240b9bf9d1",
+    "reasoning": {
+      "effort": "low",
+      "summary": "auto"
+    },
+    "store": false,
+    "stream": true,
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "description": "Read a UTF-8 text file and return its contents.",
+        "name": "read_file",
+        "parameters": {
+          "properties": {
+            "path": {
+              "description": "Path to the file, relative to the workspace.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "type": "function"
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "method": "POST",
+  "url": "https://api.x.ai/v1/chat/completions",
+  "headers": [
+    [
+      "authorization",
+      "<redacted>"
+    ],
+    [
+      "x-grok-client-identifier",
+      "grok-cli"
+    ],
+    [
+      "x-grok-client-version",
+      "1.0.30"
+    ],
+    [
+      "user-agent",
+      "grok-cli/1.0.30"
+    ],
+    [
+      "accept",
+      "text/event-stream"
+    ],
+    [
+      "content-type",
+      "application/json"
+    ]
+  ],
+  "body": {
+    "max_tokens": 64,
+    "messages": [
+      {
+        "content": "You are a terse assistant under test.",
+        "role": "system"
+      },
+      {
+        "content": "Reply with exactly: CAPTURE OK",
+        "role": "user"
+      }
+    ],
+    "model": "grok-4.6",
+    "reasoning_effort": "low",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "captured_at": "2026-10-03T03:09:22Z",
+  "model": "subs/claude/fable",
+  "path": "bridge",
+  "scenarios": [
+    "text",
+    "tool",
+    "image",
+    "image-tool",
+    "dialect",
+    "todo"
+  ],
+  "thickapi_version": "0.15.0",
+  "vendor": "claude-bridge",
+  "version": "2.1.288",
+  "wire_model": "claude-fable-5-1"
+}

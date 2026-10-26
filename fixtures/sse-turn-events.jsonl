@@ -1,0 +1,3 @@
+{"seq":1,"event":{"type":"turn_start","turn_id":"t1","session_id":"s1","backend":"claude_code","account_id":"claude-main","model":"subs/claude/sonnet"}}
+{"seq":2,"event":{"type":"assistant_delta","text":"hello"}}
+{"seq":3,"event":{"type":"turn_end","state":"success","returncode":0,"text":"hello","retry_after_seconds":null,"touched_paths":[],"breaches":[]}}

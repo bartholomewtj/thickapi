@@ -1,0 +1,15 @@
+{"type":"system","subtype":"init","cwd":"C:\\priv","session_id":"s2","tools":["mcp__pi__read","mcp__pi__bash"],"mcp_servers":[{"name":"pi","status":"connected"}],"model":"claude-sonnet-4-6","permissionMode":"dontAsk","slash_commands":[],"apiKeySource":"none","skills":[],"plugins":[],"output_style":"default","uuid":"u1"}
+{"type":"stream_event","event":{"type":"message_start","message":{"id":"msg_02","type":"message","role":"assistant","model":"claude-sonnet-4-6","content":[],"stop_reason":null,"usage":{"input_tokens":40,"cache_creation_input_tokens":0,"cache_read_input_tokens":3000,"output_tokens":1}}},"session_id":"s2","uuid":"u2"}
+{"type":"stream_event","event":{"type":"content_block_start","index":0,"content_block":{"type":"text","text":""}},"session_id":"s2","uuid":"u3"}
+{"type":"stream_event","event":{"type":"content_block_delta","index":0,"delta":{"type":"text_delta","text":"Reading and listing."}},"session_id":"s2","uuid":"u4"}
+{"type":"stream_event","event":{"type":"content_block_stop","index":0},"session_id":"s2","uuid":"u5"}
+{"type":"stream_event","event":{"type":"content_block_start","index":1,"content_block":{"type":"tool_use","id":"toolu_01","name":"mcp__pi__read","input":{}}},"session_id":"s2","uuid":"u6"}
+{"type":"stream_event","event":{"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":"{\"path\": "}},"session_id":"s2","uuid":"u7"}
+{"type":"stream_event","event":{"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":"\"a.txt\"}"}},"session_id":"s2","uuid":"u8"}
+{"type":"stream_event","event":{"type":"content_block_stop","index":1},"session_id":"s2","uuid":"u9"}
+{"type":"stream_event","event":{"type":"content_block_start","index":2,"content_block":{"type":"tool_use","id":"toolu_02","name":"mcp__pi__bash","input":{}}},"session_id":"s2","uuid":"u10"}
+{"type":"stream_event","event":{"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"{\"command\":\"ls\"}"}},"session_id":"s2","uuid":"u11"}
+{"type":"stream_event","event":{"type":"content_block_stop","index":2},"session_id":"s2","uuid":"u12"}
+{"type":"stream_event","event":{"type":"message_delta","delta":{"stop_reason":"tool_use","stop_sequence":null},"usage":{"input_tokens":40,"cache_creation_input_tokens":0,"cache_read_input_tokens":3000,"output_tokens":57}},"session_id":"s2","uuid":"u13"}
+{"type":"stream_event","event":{"type":"message_stop"},"session_id":"s2","uuid":"u14"}
+{"type":"result","subtype":"error_during_execution","is_error":true,"duration_ms":2000,"duration_api_ms":1900,"num_turns":1,"stop_reason":"tool_use","terminal_reason":"aborted_streaming","session_id":"s2","total_cost_usd":0.0,"usage":{"input_tokens":40,"output_tokens":57},"uuid":"u15"}

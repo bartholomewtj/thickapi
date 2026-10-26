@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  # Do not inject -D warnings through RUSTFLAGS: it changes the cache key
+  # and hides which step (fmt/clippy/test) actually failed.
+  RUSTFLAGS: ""
+
+jobs:
+  gate:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    # h08_e2e writes %TEMP%\thickapi-h08-hang.exe. Hosted runners are a
+    # fresh VM per job, so there is no collision, but this job must stay a
+    # single leg — never split into a parallel matrix sharing a machine/TEMP.
+    steps:
+      - uses: actions/checkout@v4
+
+      # dtolnay/rust-toolchain@master requires an explicit `toolchain` input
+      # (it does not auto-read rust-toolchain.toml on this action version);
+      # pinned here to match rust-toolchain.toml exactly.
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.98.1"
+          components: clippy, rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+
+      - name: cargo fmt --check
+        run: cargo fmt --all -- --check
+
+      - name: cargo clippy -D warnings
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: cargo test
+        run: cargo test --workspace --no-fail-fast
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: bun test (pi-thin)
+        working-directory: extensions/pi-thin
+        run: bun test

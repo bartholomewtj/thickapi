@@ -1,0 +1,4 @@
+{"model":"claude-fable-5-1","type":"started"}
+{"text":"CAPTURE OK","type":"text"}
+{"completion_tokens":10,"prompt_tokens":631,"type":"usage"}
+{"reason":"stop","type":"finish"}

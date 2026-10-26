@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-17T03:16:29Z",
+  "model": "subs/claude/sonnet",
+  "path": "bridge",
+  "scenarios": [
+    "text",
+    "tool"
+  ],
+  "thickapi_version": "0.1.0",
+  "vendor": "claude-bridge",
+  "version": "2.1.274",
+  "wire_model": "claude-sonnet-4-6"
+}
