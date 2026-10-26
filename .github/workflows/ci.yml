@@ -27,7 +27,7 @@ jobs:
     # fresh VM per job, so there is no collision, but this job must stay a
     # single leg — never split into a parallel matrix sharing a machine/TEMP.
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # dtolnay/rust-toolchain@master requires an explicit `toolchain` input
       # (it does not auto-read rust-toolchain.toml on this action version);
